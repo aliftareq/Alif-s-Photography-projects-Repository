@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../../Assests/Images/alif-cateing2-removebg-preview.png'
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, LogOut } = useContext(AuthContext)
+    //console.log(user);
+
+    //navigation 
+    const navigate = useNavigate()
+
+    //handler
+    //1
+    const handleSignOut = () => {
+        LogOut()
+        navigate('/login')
+    }
     return (
         <div className="bg-gray-900">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -21,69 +34,140 @@ const Navbar = () => {
                             </span>
                         </Link>
                         <ul className="flex items-center hidden space-x-8 lg:flex">
-                            <li>
-                                <Link
-                                    to="/my-reviews"
-                                    aria-label="My reviews"
-                                    title="My reviews"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
-                                >
-                                    My reviews
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/add-service"
-                                    aria-label="Add service"
-                                    title="Add service"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
-                                >
-                                    Add service
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/menus"
-                                    aria-label="Menus"
-                                    title="Menus"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
-                                >
-                                    Menus
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/blog"
-                                    aria-label="Blog"
-                                    title="Blog"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
-                                >
-                                    Blog
-                                </Link>
-                            </li>
+                            {
+                                user && user?.uid
+                                    ?
+                                    <>
+                                        <li>
+                                            <Link
+                                                to="/my-reviews"
+                                                aria-label="My reviews"
+                                                title="My reviews"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                My reviews
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/add-service"
+                                                aria-label="Add service"
+                                                title="Add service"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                Add service
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/menus"
+                                                aria-label="Menus"
+                                                title="Menus"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                Menus
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/blog"
+                                                aria-label="Blog"
+                                                title="Blog"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                Blog
+                                            </Link>
+                                        </li>
+                                    </>
+                                    :
+                                    <>
+                                        <li>
+                                            <Link
+                                                to="/menus"
+                                                aria-label="Menus"
+                                                title="Menus"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                Menus
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/blog"
+                                                aria-label="Blog"
+                                                title="Blog"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                Blog
+                                            </Link>
+                                        </li>
+                                    </>
+                            }
+
                         </ul>
                     </div>
                     <ul className="flex items-center hidden space-x-8 lg:flex">
-                        <li>
-                            <Link
-                                to="/login"
-                                aria-label="Login"
-                                title="Login"
-                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
-                            >
-                                Login
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/register"
-                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                                aria-label="Register"
-                                title="Register"
-                            >
-                                Register
-                            </Link>
-                        </li>
+                        {
+                            user && user?.uid
+                                ?
+                                <>
+                                    <li>
+                                        <Link
+                                            to="/"
+                                            aria-label="Sign up"
+                                            title={user?.displayName ? user?.displayName : 'Annonymous'}
+                                        >
+                                            <div className="flex flex-col items-center justify-center">
+                                                <div className="flex flex-wrap gap-x-2 gap-y-2">
+                                                    <div className="relative flex-shrink-0">
+                                                        <span className="absolute bottom-0 right-0 w-4 h-4 bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
+                                                        {
+                                                            user?.photoURL
+                                                                ? <img src={user?.photoURL} alt="" className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700" />
+                                                                : <img src="https://media.istockphoto.com/vectors/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-vector-id1130884625?k=20&m=1130884625&s=612x612&w=0&h=OITK5Otm_lRj7Cx8mBhm7NtLTEHvp6v3XnZFLZmuB9o=" alt="" className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700" />
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                    <li onClick={handleSignOut}>
+                                        <Link
+                                            to=""
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                                            aria-label="Logout"
+                                            title="Logout"
+                                        >
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </>
+                                :
+                                <>
+                                    <li>
+                                        <Link
+                                            to="/login"
+                                            aria-label="Login"
+                                            title="Login"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                        >
+                                            Login
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/register"
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                                            aria-label="Register"
+                                            title="Register"
+                                        >
+                                            Register
+                                        </Link>
+                                    </li>
+                                </>
+                        }
+
                     </ul>
                     <div className="lg:hidden">
                         <button
@@ -140,68 +224,117 @@ const Navbar = () => {
                                             </button>
                                         </div>
                                     </div>
-                                    <nav>
+                                    <nav className=''>
                                         <ul className="space-y-4">
-                                            <li>
-                                                <Link
-                                                    to="/"
-                                                    aria-label="My reviews"
-                                                    title="My reviews"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
-                                                >
-                                                    My reviews
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/"
-                                                    aria-label="Add service"
-                                                    title="Add service"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
-                                                >
-                                                    Add service
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/menus"
-                                                    aria-label="Menus"
-                                                    title="Menus"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
-                                                >
-                                                    Menus
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/"
-                                                    aria-label="Blog"
-                                                    title="Blog"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
-                                                >
-                                                    Blog
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/"
-                                                    aria-label="Login"
-                                                    title="Login"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
-                                                >
-                                                    Login
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/"
-                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Register"
-                                                    title="Register"
-                                                >
-                                                    Register
-                                                </Link>
-                                            </li>
+                                            {
+                                                user && user?.uid
+                                                    ?
+                                                    <>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                aria-label="My reviews"
+                                                                title="My reviews"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                My reviews
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                aria-label="Add service"
+                                                                title="Add service"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Add service
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/menus"
+                                                                aria-label="Menus"
+                                                                title="Menus"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Menus
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                aria-label="Blog"
+                                                                title="Blog"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Blog
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                aria-label="Login"
+                                                                title="Login"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Login
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                                                                aria-label="Register"
+                                                                title="Register"
+                                                            >
+                                                                Register
+                                                            </Link>
+                                                        </li>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <li>
+                                                            <Link
+                                                                to="/menus"
+                                                                aria-label="Menus"
+                                                                title="Menus"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Menus
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                aria-label="Blog"
+                                                                title="Blog"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Blog
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                aria-label="Login"
+                                                                title="Login"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Login
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                                                                aria-label="Register"
+                                                                title="Register"
+                                                            >
+                                                                Register
+                                                            </Link>
+                                                        </li>
+                                                    </>
+                                            }
                                         </ul>
                                     </nav>
                                 </div>

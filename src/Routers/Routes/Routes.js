@@ -8,6 +8,7 @@ import Errorpage from "../../Pages/ErrorPage/Errorpage";
 import Home from "../../Pages/HomePage/Home/Home";
 import Menu from "../../Pages/MenuPage/Menu/Menu";
 import MyReviews from "../../Pages/MyReviewsPage/MyReviews/MyReviews";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -21,11 +22,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/my-reviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
             },
             {
                 path: '/add-service',
-                element: <AddService></AddService>
+                element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
             },
             {
                 path: '/menus',
