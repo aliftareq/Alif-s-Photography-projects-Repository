@@ -23,7 +23,7 @@ const Navbar = () => {
                         <ul className="flex items-center hidden space-x-8 lg:flex">
                             <li>
                                 <Link
-                                    to="/"
+                                    to="/my-reviews"
                                     aria-label="My reviews"
                                     title="My reviews"
                                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
@@ -33,7 +33,7 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <Link
-                                    to="/"
+                                    to="/add-service"
                                     aria-label="Add service"
                                     title="Add service"
                                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
@@ -43,12 +43,12 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <Link
-                                    to="/about-me"
-                                    aria-label="About-Me"
-                                    title="About-Me"
+                                    to="/menus"
+                                    aria-label="Menus"
+                                    title="Menus"
                                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                                 >
-                                    About-Me
+                                    Menus
                                 </Link>
                             </li>
                             <li>
@@ -164,12 +164,12 @@ const Navbar = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    to="/"
-                                                    aria-label="About-Me"
-                                                    title="About-Me"
+                                                    to="/menus"
+                                                    aria-label="Menus"
+                                                    title="Menus"
                                                     className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
                                                 >
-                                                    About-Me
+                                                    Menus
                                                 </Link>
                                             </li>
                                             <li>

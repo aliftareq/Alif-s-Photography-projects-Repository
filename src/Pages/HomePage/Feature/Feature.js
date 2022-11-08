@@ -8,7 +8,7 @@ const Feature = () => {
                     <span className="text-violet-400 underline">OUR FEATURES </span>
                 </h1>
                 <p className="px-8 mt-8 mb-6 text-lg">
-                    We know what are you Looking for , and <span className='text-teal-400'>we really care</span> about your Interest and Hygine.
+                    We <span className='text-teal-400'> really care about</span> your Interest and Hygine and know what are you looking for.
                 </p>
             </div>
             <div className="p-4 lg:p-8">
