@@ -1,17 +1,35 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AiFillStar } from "react-icons/ai";
 import CustomerReview from '../../Shared/CustomerReview/CustomerReview';
 import SingleReview from '../../Shared/SingleReview/SingleReview';
 import ReviewForm from '../../Shared/ReviewForm/ReviewForm';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
+    //context data
+    const { user } = useContext(AuthContext)
+    //states 
+    const [reviews, setReviews] = useState([])
+    const [refresh, setRefresh] = useState(false)
+    //loaded data
     const service = useLoaderData()
     const { _id, img, name, descriptin, price, ratings } = service
+
+    // getting reviews by id
+    useEffect(() => {
+        fetch(`http://localhost:5000/services/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setReviews(data)
+            })
+    }, [_id, refresh])
+
     return (
         <div className='mx-10 my-5'>
             {/* service description */}
-            <div className="mb-5 rounded-md  group hover:no-underline focus:no-underline text-white bg-gray-900">
+            <section className="mb-5 rounded-md  group hover:no-underline focus:no-underline text-white bg-gray-900">
                 <div className="mx-auto flex flex-col items-center px-4 py-8 text-center md:px-10 lg:px-32 xl:max-w-3xl">
                     <h1 className="text-4xl font-bold leading-none sm:text-5xl">
                         <span className="text-violet-400 underline">Package Details</span>
@@ -42,21 +60,31 @@ const ServiceDetails = () => {
                     </div>
                     <button className='btn'>Book Now</button>
                 </div>
-            </div>
+            </section>
             {/* service reviews */}
-            <div className='bg-gray-800 py-10'>
+            <section className='bg-gray-800 py-10'>
                 <div>
                     <CustomerReview></CustomerReview>
                 </div>
+                {
+                    user && user?.uid
+                        ?
+                        <div>
+                            <ReviewForm service={service} refresh={refresh} setRefresh={setRefresh}></ReviewForm>
+                        </div>
+                        :
+                        <div className='w-3/4 mx-auto my-5'>
+                            <p className='text-white text-xl font-bold'>
+                                Please <Link className='underline text-blue-600' to='/login'>login</Link> to add a review.
+                            </p>
+                        </div>
+                }
                 <div>
-                    <SingleReview></SingleReview>
-                    <SingleReview></SingleReview>
-                    <SingleReview></SingleReview>
+                    {
+                        reviews.map(review => <SingleReview key={review._id} review={review}></SingleReview>)
+                    }
                 </div>
-                <div>
-                    <ReviewForm></ReviewForm>
-                </div>
-            </div>
+            </section>
         </div>
     );
 };

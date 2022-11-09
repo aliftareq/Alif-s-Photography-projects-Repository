@@ -1,8 +1,48 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
-const ReviewForm = () => {
+const ReviewForm = ({ service, refresh, setRefresh }) => {
+    //context data
+    const { user } = useContext(AuthContext)
+    //console.log(user);
+    const { _id, name, } = service
+    //handler
+    const handlePostReview = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const reviewtext = e.target.review.value
+        const reviewObj = {
+            ServiceId: _id,
+            ServiceName: name,
+            ReviewerName: user?.displayName,
+            Reviewerimg: user?.photoURL,
+            ReviewerEmail: user?.email,
+            ReviewText: reviewtext
+        }
+        console.log(reviewObj);
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(reviewObj)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    toast.success('Your comment added successfully')
+                    form.reset()
+                    setRefresh(!refresh)
+                }
+                else {
+                    toast.error('something went wrong')
+                }
+            })
+    }
     return (
-        <div className="flex flex-col w-3/4 mx-auto p-8 shadow-sm rounded-xl lg:p-12 bg-gray-900 text-gray-100">
+        <div className="flex flex-col w-3/4 mx-auto p-8 mt-5 shadow-sm rounded-xl lg:p-12 bg-gray-900 text-gray-100">
             <div className="flex flex-col items-center w-full">
                 <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                 <div className="flex flex-col items-center py-6 space-y-3">
@@ -35,10 +75,12 @@ const ReviewForm = () => {
                         </button>
                     </div>
                 </div>
-                <div className="flex flex-col w-full">
-                    <textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none text-gray-100 bg-gray-900 border-2"></textarea>
-                    <button type="button" className="py-4 my-8 font-semibold rounded-md text-gray-900 bg-violet-400">Leave feedback</button>
-                </div>
+                <form className="flex flex-col w-3/5 mx-auto" onSubmit={handlePostReview}>
+                    <textarea rows="3" name='review' placeholder="Message..." className="p-4 rounded-md resize-none text-gray-100 bg-gray-900 border-2"></textarea>
+                    {/* feedback button */}
+                    <button type="submit" className="py-4 my-8 font-semibold rounded-md text-gray-900 bg-violet-400">Leave feedback
+                    </button>
+                </form>
             </div>
         </div>
     );
