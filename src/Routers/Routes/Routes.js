@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AboutMe from "../../Pages/AboutMePage/AboutMe/AboutMe";
 import AddService from "../../Pages/AddServicePage/AddService/AddService";
 import Login from "../../Pages/AuthentcationPage/Login/Login";
 import Register from "../../Pages/AuthentcationPage/Register/Register";
 import Blog from "../../Pages/BlogPage/Blog/Blog";
 import Errorpage from "../../Pages/ErrorPage/Errorpage";
 import Home from "../../Pages/HomePage/Home/Home";
-import Menu from "../../Pages/MenuPage/Menu/Menu";
 import MyReviews from "../../Pages/MyReviewsPage/MyReviews/MyReviews";
+import Services from "../../Pages/ServicesPage/Services/Services";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
                 element: <Home> </Home>
             },
             {
+                path: '/services',
+                element: <Services></Services>
+            },
+            {
                 path: '/my-reviews',
                 element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
             },
@@ -29,8 +34,8 @@ export const router = createBrowserRouter([
                 element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
             },
             {
-                path: '/menus',
-                element: <Menu></Menu>
+                path: '/about-me',
+                element: <AboutMe></AboutMe>
             },
             {
                 path: '/blog',
