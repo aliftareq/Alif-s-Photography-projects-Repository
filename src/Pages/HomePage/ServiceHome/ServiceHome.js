@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SingleService from '../../ServicesPage/SingleService/SingleService';
 
 const ServiceHome = () => {
+    // states 
+    const [services, setServices] = useState([])
+
+    //loading data 
+    useEffect(() => {
+        fetch('http://localhost:5000/services?route=home')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
     return (
         <section className="bg-gray-800 text-gray-100 rounded-md">
             <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
@@ -14,30 +24,13 @@ const ServiceHome = () => {
                     </p>
                 </div>
                 <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <Link rel="noopener noreferrer" to="/" className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900">
-                        <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src="https://source.unsplash.com/random/480x360?1" alt='img' />
-                        <div className="p-6 space-y-2">
-                            <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                            <span className="text-xs text-gray-400">January 21, 2021</span>
-                            <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                        </div>
-                    </Link>
-                    <Link rel="noopener noreferrer" to="/" className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900">
-                        <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src="https://source.unsplash.com/random/480x360?2" alt='img' />
-                        <div className="p-6 space-y-2">
-                            <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                            <span className="text-xs text-gray-400">January 22, 2021</span>
-                            <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                        </div>
-                    </Link>
-                    <Link rel="noopener noreferrer" to="/" className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900">
-                        <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src="https://source.unsplash.com/random/480x360?3" alt='img' />
-                        <div className="p-6 space-y-2">
-                            <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                            <span className="text-xs text-gray-400">January 23, 2021</span>
-                            <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                        </div>
-                    </Link>
+                    {
+                        services.map(service =>
+                            <SingleService
+                                key={service._id}
+                                service={service}>
+                            </SingleService>)
+                    }
                 </div>
                 <div className="flex justify-center">
                     <Link to='/services'>
