@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SingleService from '../../ServicesPage/SingleService/SingleService';
 
-const ServiceHome = () => {
-    // states 
-    const [services, setServices] = useState([])
-
-    //loading data 
-    useEffect(() => {
-        fetch('http://localhost:5000/services?route=home')
-            .then(res => res.json())
-            .then(data => setServices(data))
-    }, [])
+const ServiceHome = ({ services }) => {
     return (
         <section className="bg-gray-800 text-gray-100 rounded-md">
             <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">

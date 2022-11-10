@@ -11,6 +11,7 @@ import MyReviews from "../../Pages/MyReviewsPage/MyReviews/MyReviews";
 import UpdateReview from "../../Pages/MyReviewsPage/UpdateReview/UpdateReview";
 import ServiceDetails from "../../Pages/ServicesPage/ServiceDetails/ServiceDetails";
 import Services from "../../Pages/ServicesPage/Services/Services";
+import LoadingRoute from "../LoadingRoute/LoadingRoute";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
@@ -21,11 +22,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home> </Home>
+                element: <LoadingRoute><Home> </Home></LoadingRoute>
             },
             {
                 path: '/services',
-                element: <Services></Services>
+                element: <LoadingRoute><Services></Services></LoadingRoute>
             },
             {
                 path: '/services/:id',
