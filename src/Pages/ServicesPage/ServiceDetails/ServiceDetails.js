@@ -5,6 +5,7 @@ import CustomerReview from '../../Shared/CustomerReview/CustomerReview';
 import SingleReview from '../../Shared/SingleReview/SingleReview';
 import ReviewForm from '../../Shared/ReviewForm/ReviewForm';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceDetails = () => {
     //context data
@@ -35,7 +36,11 @@ const ServiceDetails = () => {
                         <span className="text-violet-400 underline">Package Details</span>
                     </h1>
                 </div>
-                <img role="presentation" className="object-cover w-3/4 h-72 lg:w-2/4 mx-auto rounded  bg-gray-500" src={img} alt='img' />
+                <PhotoProvider>
+                    <PhotoView src={img}>
+                        <img role="presentation" className="object-cover w-3/4 h-72 lg:w-2/4 mx-auto rounded  bg-gray-500" src={img} alt='img' />
+                    </PhotoView>
+                </PhotoProvider>
                 <div className="p-6 lg:px-40 space-y-2">
                     <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
                         {name}
