@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import useTitle from '../../../Hooks/useTitle';
 
 const AddService = () => {
+    //setting title
+    useTitle('Add Service')
     //states
     const [error, setError] = useState('')
     //handlers

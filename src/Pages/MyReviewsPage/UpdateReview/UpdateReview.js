@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../../../Hooks/useTitle';
 
 const UpdateReview = () => {
+    //setting title
+    useTitle('Update Review')
     const navigate = useNavigate()
     //data loading
     const review = useLoaderData()

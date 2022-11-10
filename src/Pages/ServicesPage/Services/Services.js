@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import SingleService from '../SingleService/SingleService';
 
 const Services = () => {
+    //setting title
+    useTitle('Services')
     // states 
     const [services, setServices] = useState([])
 

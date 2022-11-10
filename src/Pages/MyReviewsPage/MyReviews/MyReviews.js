@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import MySingleReview from './MySingleReview';
 
 const MyReviews = () => {
+    //setting title
+    useTitle('My Reviews')
     //context data 
     const { user } = useContext(AuthContext)
     console.log(user);

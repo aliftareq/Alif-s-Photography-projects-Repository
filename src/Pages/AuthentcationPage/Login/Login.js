@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 import { setAuthToken } from '../../../JWTAuth/JWTAuth';
 
 const Login = () => {
+    //setting title
+    useTitle('Login')
+    //taking location for navigation
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'

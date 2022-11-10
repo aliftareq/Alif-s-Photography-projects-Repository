@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../../Hooks/useTitle';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import BookEvent from '../BookEvent/BookEvent';
 import Feature from '../Feature/Feature';
@@ -6,6 +7,8 @@ import Header from '../Header/Header';
 import ServiceHome from '../ServiceHome/ServiceHome';
 
 const Home = () => {
+    //setting title
+    useTitle('Home')
     // states 
     const [services, setServices] = useState([])
 

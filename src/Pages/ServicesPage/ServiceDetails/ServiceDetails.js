@@ -6,8 +6,11 @@ import SingleReview from '../../Shared/SingleReview/SingleReview';
 import ReviewForm from '../../Shared/ReviewForm/ReviewForm';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import useTitle from '../../../Hooks/useTitle';
 
 const ServiceDetails = () => {
+    //setting title
+    useTitle('Service Details')
     //context data
     const { user } = useContext(AuthContext)
     //states 

@@ -2,9 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 import { setAuthToken } from '../../../JWTAuth/JWTAuth';
 
 const Register = () => {
+    //setting title
+    useTitle('Register')
     //states
     const [error, setError] = useState('')
     const [accept, setAccept] = useState(false)
