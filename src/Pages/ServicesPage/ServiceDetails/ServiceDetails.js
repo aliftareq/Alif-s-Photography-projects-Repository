@@ -22,7 +22,7 @@ const ServiceDetails = () => {
 
     // getting reviews by id
     useEffect(() => {
-        fetch(`https://alif-photography-serverside.vercel.app/services/reviews/${_id}`, {
+        fetch(`https://alif-photography-serverside-aliftareq.vercel.app/services/reviews/${_id}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('User-Token')}`
             }

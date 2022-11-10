@@ -12,7 +12,7 @@ const Services = () => {
 
     //loading data 
     useEffect(() => {
-        fetch('https://alif-photography-serverside.vercel.app/services', {
+        fetch('https://alif-photography-serverside-aliftareq.vercel.app/services', {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('User-Token')}`
             }

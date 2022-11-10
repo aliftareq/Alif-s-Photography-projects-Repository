@@ -15,7 +15,7 @@ const MyReviews = () => {
     const [refresh, setRefresh] = useState(false)
     //loaded data
     useEffect(() => {
-        fetch(`https://alif-photography-serverside.vercel.app/reviews?email=${user?.email}`, {
+        fetch(`https://alif-photography-serverside-aliftareq.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('User-Token')}`
             }

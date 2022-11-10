@@ -1,6 +1,6 @@
 export const setAuthToken = (user) => {
     // get JWT token
-    fetch('https://alif-photography-serverside.vercel.app/jwt', {
+    fetch('https://alif-photography-serverside-aliftareq.vercel.app/jwt', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

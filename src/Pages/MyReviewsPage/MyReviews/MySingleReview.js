@@ -8,7 +8,7 @@ const MySingleReview = ({ review, refresh, setRefresh }) => {
     const handleDeleteReview = () => {
         const Proceed = window.confirm('Are you sure about to delete this Review?')
         if (Proceed) {
-            fetch(`https://alif-photography-serverside.vercel.app/review/${_id}`, {
+            fetch(`https://alif-photography-serverside-aliftareq.vercel.app/review/${_id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('User-Token')}`

@@ -21,7 +21,7 @@ const ReviewForm = ({ service, refresh, setRefresh }) => {
             ReviewText: reviewtext
         }
         console.log(reviewObj);
-        fetch('https://alif-photography-serverside.vercel.app/review', {
+        fetch('https://alif-photography-serverside-aliftareq.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

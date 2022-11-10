@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: ({ params }) => fetch(`https://alif-photography-serverside.vercel.app/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://alif-photography-serverside-aliftareq.vercel.app/services/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
             },
             {
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/updateReview/:id',
-                loader: ({ params }) => fetch(`https://alif-photography-serverside.vercel.app/review/${params.id}`, {
+                loader: ({ params }) => fetch(`https://alif-photography-serverside-aliftareq.vercel.app/review/${params.id}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('User-Token')}`
                     }

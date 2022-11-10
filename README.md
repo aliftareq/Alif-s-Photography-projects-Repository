@@ -39,9 +39,9 @@ Tailwind Components ->
 
 ## Alifs Photgraphy API Links:
 ***
-* Get all Sevices: -> (https://alif-photography-serverside.vercel.app/services)
-* Get single Service details by topic id: -> (https://alif-photography-serverside.vercel.app/services/${id})
-* Example: -> (https://alif-photography-serverside.vercel.app/services/636c984bdd934b7929de1b93)
+* Get all Sevices: -> (https://alif-photography-serverside-aliftareq.vercel.app/services)
+* Get single Service details by topic id: -> (https://alif-photography-serverside-aliftareq.vercel.app/services/${id})
+* Example: -> (https://alif-photography-serverside-aliftareq.vercel.app/services/636c984bdd934b7929de1b93)
 
 ## Other Resources
 ***
