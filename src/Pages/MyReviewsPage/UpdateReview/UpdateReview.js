@@ -16,7 +16,7 @@ const UpdateReview = () => {
         e.preventDefault()
         const newReviewText = e.target.review.value
         console.log(ReviewText);
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://alif-photography-serverside.vercel.app/review/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

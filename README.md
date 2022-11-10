@@ -14,7 +14,7 @@ An Website About My Professional Working Portfolio and Services. It helps People
 
 ## Live Link
 ***
-Hosted in firebase -> [Alif's Photography](https://project-one-university.web.app/)
+Hosted in firebase -> [Alif's Photography](https://alif-s-photography.web.app/)
 
 ## Technologies
 ***
@@ -37,11 +37,11 @@ Tailwind Components ->
 [mambaUI](https://www.mambaui.com/components)
 [DaisyUI](https://daisyui.com/components/)
 
-## One University API Links:
+## Alifs Photgraphy API Links:
 ***
-* Get all Sevices: -> (https://one-university-server-side.vercel.app/courses)
-* Get single Service details by topic id: -> (https://one-university-server-side.vercel.app/course/${id})
-* Example: -> (https://one-university-server-side.vercel.app/course/0282e0e58a5c404fbd15261f11c2ab6a)
+* Get all Sevices: -> (https://alif-photography-serverside.vercel.app/services)
+* Get single Service details by topic id: -> (https://alif-photography-serverside.vercel.app/services/${id})
+* Example: -> (https://alif-photography-serverside.vercel.app/services/636c984bdd934b7929de1b93)
 
 ## Other Resources
 ***

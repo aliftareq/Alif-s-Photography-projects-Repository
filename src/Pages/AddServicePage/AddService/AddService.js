@@ -49,7 +49,7 @@ const AddService = () => {
         }
         console.log(Service);
         //sending data to database.
-        fetch('http://localhost:5000/service', {
+        fetch('https://alif-photography-serverside.vercel.app/service', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

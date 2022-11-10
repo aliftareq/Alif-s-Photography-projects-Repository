@@ -12,7 +12,11 @@ const Services = () => {
 
     //loading data 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://alif-photography-serverside.vercel.app/services', {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('User-Token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
