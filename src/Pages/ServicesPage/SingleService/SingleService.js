@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowRight, AiFillStar } from "react-icons/ai";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+
 
 const SingleService = ({ service }) => {
     const { _id, img, name, descriptin, price, ratings } = service
     //console.log(service);
     return (
         <div rel="noopener noreferrer" className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900">
-            <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src={img} alt='img' />
+            <PhotoProvider>
+                <PhotoView src={img}>
+                    <img role="presentation" className="object-cover w-full rounded h-44 bg-gray-500" src={img} alt='img' />
+                </PhotoView>
+            </PhotoProvider>
             <div className="p-6 space-y-2">
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
                     {name}
