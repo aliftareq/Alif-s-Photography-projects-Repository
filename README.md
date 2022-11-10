@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Alif's Photography projects Repository
+ 
+An Website About My Professional Working Portfolio and Services. It helps People to find me and know about my services. By this website anyone from anywhere can reach me and contact me , explore my services. Organization also can Collaborate with me. Overall this website is gateway for good communication with a service provider and service user. To explore more click the following live site link.
+ 
+***
+## What was done in this project(Description):
+* The main focus of this project was MongoDb Integration & firebase Authentication. Making a realTime Database and interacting with it is also one of the major focuses.
+* Also Implemented Login and signup with Email-password , google , github with the help of firebase.
+* For the very First time I implemented Dynamic title for every single route.
+*  There is also added a Feature of Private is repeated inspiring by my previous project, here i implemented private route for "Add service" and "My reviews" route
+* In some portions I have used the react "useContext" hook to distribute the user data and the others function through the Project code and files.
+*  There many kinds of functionalities have been implemented , most importantly "useAuthStateChange '' for holding the state of the user and the unSubscribe function for preventing memory leak.
+* The Most Fascinating thing used in this Project is "JWT/ Json Web Token". It was used For saving our private data of our user. No one can Access the Data without A token.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Link
+***
+Hosted in firebase -> [Alif's Photography](https://project-one-university.web.app/)
 
-## Available Scripts
+## Technologies
+***
+A list of technologies used within the project:
+* [React](https://reactjs.org/): Version 18.2.0
+* [React router](https://reactrouter.com/en/main): Version 6.4.2
+* [React tostify](https://www.npmjs.com/package/react-toastify): Version 9.0.8
+* [React-photo-view  ](https://react-photo-view.vercel.app/en-US): Version: 1.2.2
+* [MongoDb Atlas](https://www.mongodb.com/atlas/database): MongoDB 6.0.
 
-In the project directory, you can run:
 
-### `npm start`
+## React Router Dom v6.4 
+***
+Documentation Link -> [Link](https://reactrouter.com/en/main/start/overview)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Resources & Credits
+***
+Tailwind Components -> 
+[Kitwind](https://kitwind.io/products/kometa/components)
+[mambaUI](https://www.mambaui.com/components)
+[DaisyUI](https://daisyui.com/components/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## One University API Links:
+***
+* Get all Sevices: -> (https://one-university-server-side.vercel.app/courses)
+* Get single Service details by topic id: -> (https://one-university-server-side.vercel.app/course/${id})
+* Example: -> (https://one-university-server-side.vercel.app/course/0282e0e58a5c404fbd15261f11c2ab6a)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Other Resources
+***
+* Icon -> [React Icons](https://react-icons.github.io/react-icons/)
+* FavIcon -> [Freepic](https://www.freepik.com/)
+* Images -> [Freepic](https://www.freepik.com/)
