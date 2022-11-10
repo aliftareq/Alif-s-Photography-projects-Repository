@@ -40,6 +40,16 @@ const Navbar = () => {
                                     <>
                                         <li>
                                             <Link
+                                                to="/"
+                                                aria-label="Home"
+                                                title="Home"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                Home
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
                                                 to="/my-reviews"
                                                 aria-label="My reviews"
                                                 title="My reviews"
@@ -81,6 +91,16 @@ const Navbar = () => {
                                     </>
                                     :
                                     <>
+                                        <li>
+                                            <Link
+                                                to="/"
+                                                aria-label="Home"
+                                                title="Home"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                                            >
+                                                Home
+                                            </Link>
+                                        </li>
                                         <li>
                                             <Link
                                                 to="/about-me"
@@ -232,6 +252,16 @@ const Navbar = () => {
                                                     <>
                                                         <li>
                                                             <Link
+                                                                to="/"
+                                                                aria-label="Home"
+                                                                title="Home"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Home
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
                                                                 to="/my-reviews"
                                                                 aria-label="My reviews"
                                                                 title="My reviews"
@@ -304,6 +334,16 @@ const Navbar = () => {
                                                     </>
                                                     :
                                                     <>
+                                                        <li>
+                                                            <Link
+                                                                to="/"
+                                                                aria-label="Home"
+                                                                title="Home"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                                                            >
+                                                                Home
+                                                            </Link>
+                                                        </li>
                                                         <li>
                                                             <Link
                                                                 to="/about-me"
