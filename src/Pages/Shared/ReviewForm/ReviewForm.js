@@ -32,7 +32,7 @@ const ReviewForm = ({ service, refresh, setRefresh }) => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    toast.success('Your comment added successfully')
+                    toast.success('Your Feedback added successfully')
                     form.reset()
                     setRefresh(!refresh)
                 }

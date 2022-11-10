@@ -6,7 +6,7 @@ const MySingleReview = ({ review, refresh, setRefresh }) => {
     const { _id, ServiceId, ServiceName, ReviewText } = review
     //handlers
     const handleDeleteReview = () => {
-        const Proceed = window.confirm('Are you sure about delete this Review?')
+        const Proceed = window.confirm('Are you sure about to delete this Review?')
         if (Proceed) {
             fetch(`http://localhost:5000/review/${_id}`, {
                 method: 'DELETE',
@@ -33,7 +33,7 @@ const MySingleReview = ({ review, refresh, setRefresh }) => {
                 <p>{ReviewText}</p>
             </td>
             <td className="p-3">
-                <Link to={`/updateReview/${_id}`}><button className='btn'>Update</button></Link>
+                <Link to={`/updateReview/${_id}`}><button className='btn'>edit review</button></Link>
             </td>
             <td className="p-3">
                 <button onClick={handleDeleteReview} className='btn'>Delete</button>

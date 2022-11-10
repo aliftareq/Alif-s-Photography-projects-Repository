@@ -20,7 +20,7 @@ const Services = () => {
                         <span className="text-violet-400 underline">MY SERVICES </span>
                     </h1>
                     <p className="px-8 mt-8 mb-6 text-lg">
-                        Explore <span className='text-teal-400'>Premium Quality</span> Catering services for All types of events.
+                        Explore <span className='text-teal-400'>Premium Quality</span> Photoshoot and videography for All types of events.
                     </p>
                 </div>
                 <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
