@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import MySingleReview from './MySingleReview';
 
 const MyReviews = () => {
@@ -11,7 +12,11 @@ const MyReviews = () => {
     const [refresh, setRefresh] = useState(false)
     //loaded data
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('User-Token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

@@ -10,6 +10,9 @@ const MySingleReview = ({ review, refresh, setRefresh }) => {
         if (Proceed) {
             fetch(`http://localhost:5000/review/${_id}`, {
                 method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('User-Token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {

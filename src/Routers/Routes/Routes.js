@@ -38,7 +38,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/updateReview/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/review/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/review/${params.id}`, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('User-Token')}`
+                    }
+                }),
                 element: <PrivateRoutes><UpdateReview></UpdateReview></PrivateRoutes>
             },
             {
